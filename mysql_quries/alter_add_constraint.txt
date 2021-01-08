@@ -1,0 +1,4 @@
+ alter table marks
+    -> ADD COLUMN cid int (11) after mid,
+    -> add constraint course_cid_fk
+    -> FOREIGN KEY (cid) REFERENCES course(cid);

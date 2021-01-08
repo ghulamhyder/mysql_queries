@@ -1,0 +1,24 @@
+question1:select max salary from emp table;
+ select emp_name,salary from emp where salary=(select max(salary) from emp);
+
+question2:select emp_name from emp table where salary is maxiumum;
+select emp_name ,salary from emp where salary=(select max(salary) from emp where salary <> (select max(salary) from emp));
+
+question2: select enm_name from emp table where salary is second highest salary?
+
+question3: select how mnay employee in each dept make query
+comment here we use count(*) and (group by) in the query for find the list of how many employee work in each dept;
+query is very simple but logically
+->SELECT dept,count(*) FROM emp GROUP BY dept;
+
+
+ select dept from emp group by dept having count(*) <2;
+
+: Subquery returns more than 1 row
+ 
+
+
+
+
+
+ 

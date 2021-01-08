@@ -1,0 +1,3 @@
+ select s.s_id,s.s_name,m.score,m.status,d.city,d.email FROM student_geek as s
+    INNER JOIN marks_geek as m ON s.s_id=m.s_id
+     INNER JOIN details as d ON d.school_id=m.school_id;

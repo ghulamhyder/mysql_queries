@@ -1,0 +1,38 @@
+  
+| test9_left_right_join
+
+CREATE TABLE dept
+     (
+     dept_no VARCHAR (10) NOT NULL PRIMARY KEY,
+    dept_name varchar (20),
+     location varchar(20)
+    );
+INSERT INTO dept
+ (dept_no,dept_name,location)VALUES('D1','IT','Badin'),
+('D2','HR','Matli'),
+('D3','Revenue','Hyd'),
+('D4','Education','Jhudo')
+)
+
+
+
+
+
+CREATE TABLE employe
+     (
+    e_no varchar(10) NOT NULL PRIMARY KEY,
+    e_name varchar(20),
+    dept_no VARCHAR (10),
+    constraint dept_no_fk
+    FOREIGN KEY (dept_no) REFERENCES dept(dept_no)
+ )	
+
+
+
+ INSERT INTO employe
+ (e_no,e_name,dept_no)VALUES
+('E1','Eidal','D1'),
+('E2','Younis','D2'),
+('E3','Hayat','D3'),
+
+    

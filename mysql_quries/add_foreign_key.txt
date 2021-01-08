@@ -1,0 +1,12 @@
+***********************add foreign key for table*************** 
+
+
+ALTER TABLE course
+    -> ADD CONSTRAINT sbio_data_id_fk
+    -> FOREIGN KEY (id_cid) REFERENCES sbio_data(id);
+
+
+
+ alter table sbio_data
+    -> add constraint course_cid_fk
+    -> foreign key (cid) references course(c_id);

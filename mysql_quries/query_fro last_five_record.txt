@@ -1,0 +1,10 @@
+ select* from emp where emp_id order by emp_id desc limit 0,5;
++--------+----------+------------+-----------+--------+-----------+--------+-------------------+
+| emp_id | emp_name | dob        | dept      | salary | city      | pin    | email             |
++--------+----------+------------+-----------+--------+-----------+--------+-------------------+
+|    119 | Ashique  | 1989-06-12 | Education |  32000 | Nawabshah | 800019 | ashique@gmail.com |
+|    118 | Irfan    | 1993-07-31 | Revenu    |  34000 | Hyderabad | 800018 | irfan@gmail.com   |
+|    117 | Barkat   | 1998-12-26 | Helath    |  36000 | Karachi   | 800017 | barkat@gmail.com  |
+|    116 | Fareed   | 1995-08-23 | Helath    |  26000 | Hyderabad | 800016 | fareed@gmail.com  |
+|    115 | Tajo     | 1981-05-11 | Edu       |  24800 | Karachi   | 800015 | tajo@gmail.com    |
++--------+----------+------------+-----------+--------+-----------+--------+-------------------+

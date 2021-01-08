@@ -1,0 +1,35 @@
+
+IS KA NATURAL JOIN NAHI HOSAKATA HA KU KE NAME OF CONDITION IS DIEFFERENT THERE FOR THE NATURAL JOIN IS BECOMING
+
+this query run successfully but not showin result because columns name different {SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,(m.math+u.urdu+sc.science+e.english) as total_marks FROM
+ marks as m1
+NATURAL JOIN  student as s
+NATURAL JOIN math as m 
+NATURAL JOIN urdu as u
+NATURAL JOIN science as sc 
+NATURAL JOIN english as e
+  WHERE
+     m1.s_id=s.s_id 
+    AND m1.math=m.mid 
+    AND m1.urdu=u.uid 
+    AND m1.science=sc.sc_id
+    AND m1.english=e.eid;}
+
+
+SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,(m.math+u.urdu+sc.science+e.english) as total_marks FROM
+ marks as m1
+ ,student as s
+, math as m 
+, urdu as u
+, science as sc 
+, english as e
+  WHERE
+     m1.s_id=s.s_id 
+    AND m1.math=m.mid 
+    AND m1.urdu=u.uid 
+    AND m1.science=sc.sc_id
+    AND m1.english=e.eid;
+
+
+
+ 

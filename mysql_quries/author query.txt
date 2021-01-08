@@ -1,0 +1,19 @@
+INSERT INSERT INTO tutorial_tbl
+(  t_id, tutorial_title, tutorial_author,submission_date)values(1,'PHP','Johan','2007-05-20'),
+(2,'MYSQL','Mehnaz','2007-05-24'),(3,'java','Sanjay','2007-05-06'),(4,'PHP','Jen','2007-05-06');
+(  t_id, tutorial_title, tutorial_author,submission_date)values(1,'PHP','Johan','2007-05-20'),
+(2,'MYSQL','Mehnaz','2007-05-24'),(3,'java','Sanjay','2007-05-06'),(4,'PHP','Jen','2007-05-06');
+
+
+(23000): Cannot add or update a child row: a foreign key constraint fails (`test1`.`tutorial_tbl`,
+ CONSTRAINT `tcount_tauth_fk` FOREIGN KEY (`tutorial_author`)
+ REFERENCES `tcount_table` (`tutorial_author
+
+SELECT 
+
+
+ select t1.t_id, t1.tutorial_title,t2.tutorial_author from tutorial_tbl as t1, tcount_table as t2
+     where t1.tutorial_author=t2.tutorial_author;
+
+ select t1.t_id, t1.tutorial_title,t2.tutorial_author,t2.tutorial_count from tutorial_tbl as t1, tcount_table as t2
+     where t1.tutorial_author=t2.tutorial_author;

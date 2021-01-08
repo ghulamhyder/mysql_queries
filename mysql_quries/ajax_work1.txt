@@ -1,0 +1,16 @@
+<script type="text/javascript">
+		$(document).ready(function(){
+			//$('#mydiv').html('hello');
+			//$('#mydiv').css('color','red');
+			$('#sub1').on('click',function(e){
+				e.preventDefault();
+				var val=$('#txt1').val();
+			$.ajax({
+				url:'isset_val1.php',
+				type:'post',
+				data:{my:val},
+				success:function(mydata){
+					$('#mydiv').html(mydata);
+				}
+
+			})

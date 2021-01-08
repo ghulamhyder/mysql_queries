@@ -1,0 +1,161 @@
++---------------------+
+| Database            |
++---------------------+
+| error_handling_user |
+| hms_db              |
+| information_schema  |
+| login_db            |
+| medicen             |
+| mysql               |
+| mystudent           |
+| online_quize        |
+| pagination          |
+| performance_schema  |
+| phpmyadmin          |
+| project_inv         |
+| quizapplicationdb   |
+| test                |
+| test1_22june        |
+| test2_23june        |
+| test_db_asad        |
+| test_in_procedure   |
+| voting_system       |
++---------------------+
+
+MariaDB [test_db_asad]> show columns from users_asad;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(4)      | NO   | PRI | NULL    | auto_increment |
+| fname | varchar(20) | NO   |     | NULL    |                |
+| lname | varchar(20) | NO   |     | NULL    |                |
+| email | varchar(20) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+MariaDB [test_db_asad]> select * from users_asad;
++----+----------+----------+------------------+
+| id | fname    | lname    | email            |
++----+----------+----------+------------------+
+|  1 | Eidall   | khan     | eidal@gmail.com  |
+|  2 | Carle    | hooper   | carl@yahoo.com   |
+|  3 | Younis   | Khan     | younis@yahoo.com |
+|  4 | Hayat    | Ali      | hyat@yahoo.com   |
+|  6 | Waqar    | Ali      | waqar@yahoo.com  |
+|  7 | Riyaz1   | Baloch1  | riaz@yahoo.com   |
+|  8 | Mujhaid  | Rind     | mujhi@yahoo.com  |
+|  9 | Mohammad | Waseem1  | waseem@yahoo.com |
+| 10 | Mohammad | Ramzan   | ramzan@yahoo.com |
+| 11 | Bilwal   | Manthar  | bilo@yahoo.com   |
+| 13 | Arman    | Khan     | arman@yahoo.com  |
+| 14 | Rashid   | Ahmed    | rashid@yahoo.com |
+| 15 | Majid    | Ali      | majid@yahoo.com  |
+| 16 | Ismail   | Khan     | ismail@gmail.com |
+| 17 | Ismail   | Khan     | ismail@gmail.com |
+| 18 | Sajad    | Ali      | sajad@gmail.com  |
+| 19 | Shahzad  | Ali      | shajo@gmail.com  |
+| 20 | sohail   | khan     | sohail@gamil.com |
+| 21 | Kher     | Mohammad | kher@gmail.com   |
+| 22 | Khadim   | Hussain  | khadim@gmail.com |
+| 23 | Munwar   | Lal      | mono@yahoo.com   |
+| 24 | Ashraf   | Khan     | ashraf@gmail.com |
++----+----------+----------+------------------+
+
+
+
+MariaDB [project_inv]> show tables;
++-----------------------+
+| Tables_in_project_inv |
++-----------------------+
+| brand                 |
+| categories            |
+| products              |
+| user                  |
++-----------------------+
+
+
+
+MariaDB [voting_system]> show tables;voting_system
++-------------------------+
+| Tables_in_voting_system |
++-------------------------+
+| candidates_db           |
+| election_db             |
+| online_voting           |
+| results_db              |
+| user_idgenerate_db      |
++-------------------------+
+
+MariaDB [online_quize]> show tables;
++------------------------+
+| Tables_in_online_quize |
++------------------------+
+| mcqs                   |
+| results                |
+| user                   |
++------------------------+
+MariaDB [hms_db]> show tables;
++------------------+
+| Tables_in_hms_db |
++------------------+
+| doctor_app       |
+| login_db         |
++------------------+
+MariaDB [medicen]> show tables;
++-------------------+
+| Tables_in_medicen |
++-------------------+
+| medicen_db        |
++-------------------+
+MariaDB [test1_22june]> show tables;
++------------------------+
+| Tables_in_test1_22june |
++------------------------+
+| course                 |
+| students               |
++------------------------+
+
+
+
+MariaDB [test2_23june]> show tables;
++------------------------+
+| Tables_in_test2_23june |
++------------------------+
+| gender_check           |
++------------------------+
+
+
+MariaDB [test2_23june]> select * from gender_check;
++----+---------+---------------+----------------+--------+
+| id | roll_no | name          | fname          | gender |
++----+---------+---------------+----------------+--------+
+|  1 |     320 | Badal         | Manzoor_ali    | M      |
+|  2 |     318 | Faraz_ali     | Mohammad_aslam | M      |
+|  3 |     326 | Shuban        | Gmurtaza       | M      |
+|  4 |     329 | Shafha        | Noor_ahmed     | F      |
+|  5 |     330 | Arman_ali     | Irfan_ali      | M      |
+|  6 |     287 | Gomienda      | Rajo           | M      |
+|  7 |     342 | fizan_ahmed   | Farooque_ahemd | M      |
+|  8 |     333 | sadique_ali   | Arbab_ali      | M      |
+|  9 |     340 | Mehar_ul_nisa | Akbar_ali      | F      |
+| 10 |     339 | Sherash       | Mohammad_arib  | F      |
+| 11 |     341 | Mehtab        | Akbar_ali      | F      |
+| 12 |     338 | allha_bachayi | Mazoor         | F      |
+| 13 |     337 | Abdul_rehman  | Abdul_razaque  | M      |
+| 14 |     336 | Rabia         | Abdul_majeed   | F      |
+| 15 |     351 | chandra       | parshootam     | F      |
+| 16 |     350 | sumera        | munwer_lal     | F      |
+| 17 |     349 | sajan         | Gordan         | M      |
+| 18 |     352 | diwan         | parshootam     | M      |
+| 19 |     348 | Kheemchand    | Arjan          | M      |
+| 20 |     353 | Amresh        | wishnoodas     | M      |
+| 21 |     354 | Lalchand      | chanoo         | M      |
+| 22 |     347 | Bheemraj      | verji          | M      |
+| 23 |     335 | Qadirdad      | Ali_dino       | M      |
+| 24 |     334 | Nusrat        | Gmurtaza       | F      |
+| 25 |     343 | Gul_bano      | Naheed_hussain | F      |
+| 26 |     344 | Ameer_hamza   | yaseen         | M      |
+| 27 |     345 | hassnain      | Abdul_kareem   | M      |
+| 28 |     346 | Ilyas         | Nasir          | M      |
++----+---------+---------------+----------------+--------+
+28 rows in set (0.056 sec)

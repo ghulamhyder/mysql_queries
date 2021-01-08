@@ -1,0 +1,323 @@
+CREATE PROCEDURE test2(IN dt1 DATE,OUT result VARHCAR(100) )
+BEGIN
+DECLARE x_result varchar(100);
+DECLARE y1,y2,m1,m2,d1,d2 int;
+DECLARE x1,x2 date;
+
+SET x_result="";
+SET x1=dt1;
+SET x2=CURDATE();
+
+SET y1=DATE_FORMAT(x1,'%y');
+SET m1=DATE_FORMAT(x1,'%c');
+SET d1=DATE_FORMAT(x1,'%e');
+
+SET y2=DATE_FORMAT(x2,'%y');
+SET m2=DATE_FORMAT(x2,'%c');
+SET d2=DATE_FORMAT(x2,'%e');
+SET x_result=CONCAT((y2-y1),'yr');
+SET x_result=CONCAT(x_result,CONCAT((m2-m1),'mth'));
+SET x_result=CONCAT(x_result,CONCAT((d2-d1),'days'));
+SELECT x_result INTO result;
+END
+****************************************************************************************************************
+*****************************************************************************************************************
+CREATE PROCEDURE test1(IN dt1 DATE)
+BEGIN
+DECLARE y1 int;
+DECLARE m1 int;
+DECLARE d1 int;
+DECLARE x_result varchar(50);
+SET x_result="";
+SET y1=DATE_FORMAT(dt1,'%y');
+SET m1=DATE_FORMAT(dt1,'%c');
+SET d1=DATE_FORMAT(dt1,'%e');
+SET x_result=CONCAT(y1,' year ');
+SET x_result=CONCAT(x_result, CONCAT(m1, ' month ' ));
+SET x_result=CONCAT(x_result, CONCAT(d1, ' day' ));
+SELECT x_result;
+END
+
+
+************************************************************************************************************
+*************************************************************************************************************
+
+CREATE PROCEDURE myage_pro12(IN dte DATE,OUT result varchar(50)) 
+BEGIN
+DECLARE a int(11);
+DECLARE b date;
+SET b=dte;
+SET a=CONVERT(b,varchar(50));
+SELECT b INTO result;
+END
+*******************************************************************************************************
+**************************************************************************************************
+BEGIN
+DECLARE x date;
+DECLARE y int(11);
+SET x=date1;
+SET y=DATE_FORMAT(x,'%y');
+select y into result;
+END
+***************************************************************************************************************
+***************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro10(IN date1 DATE,OUT result CHAR(11) )
+BEGIN
+DECLARE x date;
+DECLARE y int;
+SET x=date1;
+SET y=DATE_FORMAT(x,'%y');
+select concat('year is',y) into result;
+ END //
+ DELIMITER ;
+*************************************************************************************************************
+**************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro9(IN date1 DATE,OUT result CHAR(11) )
+BEGIN
+DECLARE x date;
+DECLARE y int(4);
+SET x=date1;
+SET y=DATE_FORMAT(x,'%y');
+select y into result;
+ END //
+ DELIMITER ;
+
+********************************************************************************************************
+**********************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro8(IN date1 DATE,OUT result CHAR(11) )
+BEGIN
+DECLARE x date;
+DECLARE y int;
+SET x=date1;
+SET y=DATE_FORMAT(x,'%y');
+select y into result;
+ END //
+ DELIMITER ;
+****************************************************************************************************************
+**************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro7(IN date1 DATE )
+BEGIN
+DECLARE y1 int(4);
+DECLARE x date;
+SET x=date1;
+SET y1=DATE_FORMAT(x,'%Y');
+SELECT CONCAT('year is',y1) as year;
+ END //
+ DELIMITER ;
+***************************************************************************************************************
+*******************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro6(IN val1 INT(10) )
+BEGIN
+select concat('my age is',val1) as msg;
+ END //
+ DELIMITER ;
+**************************************************************************************************************
+************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro5(IN val CHAR(11) )
+BEGIN
+select * from emp where id=CONVERT(val,int);
+ END //
+ DELIMITER ;
+***************************************************************************************************
+******************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro3(IN in_date CHAR(11) )
+BEGIN
+SELECT * from emp where dob=CONVERT(in_date,date);
+ END //
+ DELIMITER ;
+
+**********************************************************************************************************
+*******************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro2(IN in_start_date CHAR(11) )
+BEGIN
+SELECT * from emp WHERE dob=CONVERT(in_start_date,date);
+ END //
+ DELIMITER ;
+*************************************************************************************************************
+************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE myage_pro1()
+BEGIN
+DECLARE val1 int; 
+DECLARE val2 int;
+DECLARE sum int;
+SET val1=10;
+SET val2=20;
+SET sum=val1+val2;
+SELECT sum;
+ END //
+ DELIMITER ;
+************************************************************************************************************
+************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE get_specific_row(IN row1 INT)
+BEGIN
+SELECT * from emp where id=row1;
+
+ END //
+ DELIMITER ;
+**************************************************************************************************************
+**************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE get_rows_count(OUT totalrecord INT)
+BEGIN
+SELECT COUNT(*) INTO total_rows FROM emp;
+
+ END //
+ DELIMITER ;
+**************************************************************************************************************
+***************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE get_multi_rows(IN row1 INT)
+BEGIN
+SELECT * from emp WHERE id<=row1;
+
+ END //
+ DELIMITER ;
+******************************************************************************************************************************************************
+*********************************************************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE get_allUser()
+BEGIN
+SELECT * from emp;
+ END //
+ DELIMITER ;
+
+*********************************************************************************************************************************************************
+*******************************************************************************************************************************************************
+DELIMITER //
+CREATE procedure age_calcu1(IN _date DATE,OUT result varchar(20))
+BEGIN
+DECLARE y1 int;
+DECLARE m1 int;
+DECLARE d1 int;
+DECLARE x1 date;
+DECLARE x_result varchar(50);
+SET x1=;
+SET y1=DATE_FORMAT(x1,'%y');
+SET m1=DATE_FORMAT(X1,'%c');
+SET d1=DATE_FORMAT(X1,'%e');
+SET x_result=concat(y1,"yr");
+SET x_result=concat(x_result,concat(m1,"month"));
+SET x_result=concat(x_result,concat(d1,"days"));
+SELECT x_result INTO result;
+END //
+DELIMITER ;
+
+
+
+*****************************************************************************************************************
+****************************************************************************************************************
+DELIMITER //
+CREATE PROCEDURE f_age6(IN x_dob DATE,OUT result VARCHAR(20) )
+BEGIN
+DECLARE x_result varchar(100);
+DECLARE y1,y2,m1,m2,d1,d2 int;
+DECLARE x1,x2 date;
+
+SET x_result='';
+SET x1=x_dob;
+SET x2=CONVERT(CURDATE(),DATE);
+IF(x1 < x2 ) THEN
+SET y1=DATE_FORMAT(x1,'%Y');
+SET m1=DATE_FORMAT(x1,'%c');
+SET d1=DATE_FORMAT(x1,'%e');
+
+SET y2=DATE_FORMAT(x2,'%Y');
+SET m2=DATE_FORMAT(x2,'%c');
+SET d2=DATE_FORMAT(x2,'%e');
+IF(d1 >d2) THEN 
+SET m2=m2-1;
+if(m2=0) THEN
+SET y2=y2-1;
+SET m2=12;
+END IF ;
+SET d2=d2 + DAY(LAST_DAY(CONCAT_WS('-',y2,m2,d2)));
+END IF ;
+IF(m1 > m2) THEN
+SET y2=y2-1;
+SET m2=m2+12;
+ END IF ;
+ IF (y2 > y1) THEN 
+ SET x_result=CONCAT((y2-y1),' yr ');
+ END IF ;
+ IF( (y2>y1) OR (m2 >m1) )THEN
+    SET x_result=CONCAT(x_result,CONCAT((m2-m1), ' mth '));
+    END IF ;
+    IF( (y2>y1) OR (m2 >m1) OR (d2 > d1) ) THEN
+       SET x_result=CONCAT(x_result,CONCAT((d2-d1), ' day'));
+       END IF ;
+       ELSE
+       SET x_result='error found';
+       END IF ;
+       SELECT x_result INTO result;
+       END //
+	DELIMITER ;
+
+
+
+************************************************************************************************************************************************************
+**********************************************************nEXT pROCEDURE******************************************************************************
+DELIMITER //
+CREATE PROCEDURE f_age7(IN x_dob DATE,OUT result VARCHAR(20) )
+BEGIN
+DECLARE x_result varchar(100);
+DECLARE y1,y2,m1,m2,d1,d2 int;
+DECLARE x1,x2 date;
+
+SET x_result='';
+SET x1=x_dob;
+SET x2=CONVERT(CURDATE(),DATE);
+
+
+
+IF(x1 < x2 ) THEN
+SET y1=DATE_FORMAT(x1,'%Y');
+SET m1=DATE_FORMAT(x1,'%c');
+SET d1=DATE_FORMAT(x1,'%e');
+
+SET y2=DATE_FORMAT(x2,'%Y');
+SET m2=DATE_FORMAT(x2,'%c');
+SET d2=DATE_FORMAT(x2,'%e');
+IF(d1 >d2) THEN 
+SET m2=m2-1;
+if(m2=0) THEN
+SET y2=y2-1;
+SET m2=12;
+END IF ;
+SET d2=d2 + DAY(LAST_DAY(CONCAT_WS('-',y2,m2,d2)));
+END IF ;
+IF(m1 > m2) THEN
+SET y2=y2-1;
+SET m2=m2+12;
+ END IF ;
+ IF (y2 > y1) THEN 
+ SET x_result=CONCAT((y2-y1),' yr ');
+ END IF ;
+ IF( (y2>y1) OR (m2 >m1) )THEN
+    SET x_result=CONCAT(x_result,CONCAT((m2-m1), ' mth '));
+    END IF ;
+    IF( (y2>y1) OR (m2 >m1) OR (d2 > d1) ) THEN
+       SET x_result=CONCAT(x_result,CONCAT((d2-d1), ' day'));
+       END IF ;
+       ELSE
+       SET x_result='error found';
+       END IF ;
+       SELECT x_result INTO result;
+       END //
+	DELIMITER ;
+
+***************************************************************************************************************************************************
+***********************************************************************************************************************************************
+
+
+
+

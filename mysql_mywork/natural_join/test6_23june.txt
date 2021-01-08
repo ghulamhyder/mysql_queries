@@ -1,0 +1,108 @@
+ SELECT s.s_id,s.s_name,m.math,sc.science,e.english,u.urdu,(m.math+sc.science+e.english+u.urdu) as total_marks  FROM 
+marks as mrk,
+student as s,
+math as m,
+science as sc,
+english as e,
+urdu as u WHERE
+mrk.s_id=s.s_id AND
+mrk.math=m.mid AND 
+mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid;
+
+ SELECT s.s_id,s.s_name,m.math,sc.science,e.english,u.urdu,(m.math+sc.science+e.english+u.urdu) as total_marks  FROM
+    -> marks as mrk,
+    -> student as s,
+    -> math as m,
+    -> science as sc,
+    -> english as e,
+    -> urdu as u WHERE
+    -> mrk.s_id=s.s_id AND
+    -> mrk.math=m.mid AND
+    -> mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid;
++------+--------+------+---------+---------+------+-------------+
+| s_id | s_name | math | science | english | urdu | total_marks |
++------+--------+------+---------+---------+------+-------------+
+|    1 | Eidal  |   45 |      57 |      49 |   88 |         239 |
+|    2 | Younis |   56 |      41 |      55 |   46 |         198 |
+|    3 | Hayat  |   78 |      56 |      52 |   90 |         276 |
++------+--------+------+---------+---------+------+-------------+
+
+SELECT s.s_id,s.s_name,m.math,sc.science,e.english,u.urdu,(m.math+sc.science+e.english+u.urdu) as total_marks  FROM 
+marks as mrk,
+student as s,
+math as m,
+science as sc,
+english as e,
+urdu as u WHERE
+mrk.s_id=s.s_id AND
+mrk.math=m.mid AND 
+mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid ORDER BY s.s_name ASC;
+
+
+ select * from math where math=(select max(math) from math);
++-----+------+
+| mid | math |
++-----+------+
+|   3 |   78 |
++-----+------+
+
+mysql> SELECT max(m.math+sc.science+e.english+u.urdu) as max_marks  FROM
+    -> marks as mrk,
+    -> student as s,
+    -> math as m,
+    -> science as sc,
+    -> english as e,
+    -> urdu as u WHERE
+    -> mrk.s_id=s.s_id AND
+    -> mrk.math=m.mid AND
+    -> mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid;
++-----------+
+| max_marks |
++-----------+
+|       276 |
++-----------+
+
+ SELECT s.s_id,s.s_name,m.math,sc.science,e.english,u.urdu,(m.math+sc.science+e.english+u.urdu) as total_marks  FROM
+    -> marks as mrk,
+    -> student as s,
+    -> math as m,
+    -> science as sc,
+    -> english as e,
+    -> urdu as u WHERE
+    -> mrk.s_id=s.s_id AND
+    -> mrk.math=m.mid AND
+    -> mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid having total_marks =276;
++------+--------+------+---------+---------+------+-------------+
+| s_id | s_name | math | science | english | urdu | total_marks |
++------+--------+------+---------+---------+------+-------------+
+|    3 | Hayat  |   78 |      56 |      52 |   90 |         276 |
++------+--------+------+---------+---------+------+-------------+
+
+  mysql>  SELECT s.s_id,s.s_name,m.math,sc.science,e.english,u.urdu,(m.math+sc.science+e.english+u.urdu) as total_marks  FROM
+    -> marks as mrk,
+    -> student as s,
+    -> math as m,
+    -> science as sc,
+    -> english as e,
+    -> urdu as u WHERE
+    -> mrk.s_id=s.s_id AND
+    -> mrk.math=m.mid AND
+    -> mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid having total_marks=(SELECT max(m.math+sc.science+e.english+u.urdu) as max_marks  FROM
+    -> marks as mrk,
+    -> student as s,
+    -> math as m,
+    -> science as sc,
+    -> english as e,
+    -> urdu as u WHERE
+    -> mrk.s_id=s.s_id AND
+    -> mrk.math=m.mid AND
+    -> mrk.urdu=u.uid AND mrk.science=sc.sc_id AND mrk.english=e.eid)
+    -> ;
++------+--------+------+---------+---------+------+-------------+
+| s_id | s_name | math | science | english | urdu | total_marks |
++------+--------+------+---------+---------+------+-------------+
+|    3 | Hayat  |   78 |      56 |      52 |   90 |         276 |
++------+--------+------+---------+---------+------+-------------+
+1 row in set (0.00 sec)
+
+

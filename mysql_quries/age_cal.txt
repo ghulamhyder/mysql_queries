@@ -1,0 +1,45 @@
+DELIMITER //
+CREATE PROCEDURE f_age1(x_dob date,out result varchar(100))
+BEGIN
+DECLARE x_result varchar(100);
+DECLARE y1,y2,m1,m2,d1,d2 int;
+DECLARE x1,x2 date;
+
+SET x_result='';
+SET x1=x_dob;
+SET x2=CONVERT(CURDATE(),DATE);
+IF(x1 < x2 ) THEN
+SET y1=DATE_FORMAT(x1,'%y');
+SET m1=DATE_FORMAT(x1,'%c');
+SET d1=DATE_FORMAT(x1,'%e');
+
+SET y2=DATE_FORMAT(x2,'%y');
+SET m2=DATE_FORMAT(x2,'%c');
+SET d2=DATE_FORMAT(x2,'%e');
+IF(d1 >d2) THEN 
+SET m2=m2-1;
+if(m2=0) THEN
+SET y2=y2-1;
+SET m2=12;
+END IF ;
+SET d2=d2 + DAY(LAST_DAY(CONCAT_WS('-',y2,m2,d2)));
+END IF ;
+IF(m1 > m2) THEN
+SET y2=y2-1;
+SET m2=m2+12;
+ END IF ;
+ IF (y2 > y1) THEN 
+ SET x_result=CONCAT((y2-y1),' yr ');
+ END IF ;
+ IF( (y2>y1) OR (m2 >m1) )THEN
+    SET x_result=CONCAT(x_result,CONCAT((m2-m1), ' mth '));
+    END IF ;
+    IF( (y2>y1) OR (m2 >m1) OR (d2 > d1) ) THEN
+       SET x_result=CONCAT(x_result,CONCAT(d2-d1), ' day'));
+       END IF ;
+       ELSE
+       SET x_result='error found';
+       END IF ;
+       SELECT x_result INTO result;
+       END //
+       DELIMITER ;

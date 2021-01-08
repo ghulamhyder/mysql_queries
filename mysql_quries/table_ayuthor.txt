@@ -1,0 +1,12 @@
+CREATE TABLE tutorial_tbl
+(
+    t_id INT (4) NOT NULL PRIMARY KEY,
+    tutorial_title varchar(30),
+    submission_date date
+);
+ tcount_table
+alter table tutorial_tbl
+ADD COLUMN  tutorial_author varchar(30) after tutorial_title,
+ADD CONSTRAINT tcount_tauth_fk
+FOREIGN KEY (tutorial_author) REFERENCES tcount_table( tutorial_author);
+ 

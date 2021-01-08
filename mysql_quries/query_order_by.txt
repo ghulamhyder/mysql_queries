@@ -1,0 +1,10 @@
+ select * from emp  where emp_id in (select emp_id from emp where emp_id<=105) order by emp_id desc;
++--------+------------+------------+-------------+--------+------------+--------+------------------+
+| emp_id | emp_name   | dob        | dept        | salary | city       | pin    | email            |
++--------+------------+------------+-------------+--------+------------+--------+------------------+
+|    105 | Ijaz Ali   | 1997-12-19 | Agriculture | 380000 | Hyderabad  | 800005 | madad@yahoo.com  |
+|    104 | Madad Ali  | 1990-08-11 | Health      | 350000 | Dadu       | 800004 | madad@yahoo.com  |
+|    103 | Rashid     | 1994-07-23 | Revenu      |  39200 | Mirpurkhas | 800003 | rashid@yahoo.com |
+|    102 | waqar      | 1996-09-10 | Edu         |  28400 | Badin      | 800002 | waqar@yahoo.com  |
+|    101 | Eidal khan | 1992-04-20 | IT          |  31300 | Badin      | 800001 | eidal@yahoo.com  |
++--------+------------+------------+-------------+--------+------------+--------+------------------+

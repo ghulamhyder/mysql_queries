@@ -1,0 +1,19 @@
+DELIMITER //
+CREATE PROCEDURE age_calcu1(IN _date date,OUT result varchar(50))
+BEGIN
+DECLARE y1 int;
+DECLARE m1 int;
+DECLARE d1 int;
+DECLARE x1 date;
+DECLARE x_result varchar(50);
+SET x1=_date;
+SET y1=DATE_FORMAT(x1,'%y');
+SET m1=DATE_FORMAT(X1,'%c');
+SET d1=DATE_FORMAT(X1,'%e');
+SET x_result=concat(y1,"yr");
+SET x_result=concat(x_result,concat(m1,"month"));
+SET x_result=concat(x_result,concat(d1,"days"));
+SELECT x_result INTO result;
+END //
+DELIMITER ;
+

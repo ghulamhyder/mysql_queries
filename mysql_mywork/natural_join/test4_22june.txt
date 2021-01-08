@@ -1,0 +1,10 @@
+ 
+db_name=test4_22june
+
+mysql> select * from students as s,address as c,course as cr,marks as m where
+    -> s.course =cr.cid AND s.city=c.adrs_id AND s.marks=m.mid and s.course=3;
++----+--------+------+--------+------+-------+---------+-------+-----+--------+-----+-------+
+| id | name   | age  | course | city | marks | adrs_id | city  | cid | course | mid | marks |
++----+--------+------+--------+------+-------+---------+-------+-----+--------+-----+-------+
+|  2 | Younis |   18 |      3 |    2 |     2 |       2 | Matli |   3 | Urdu   |   2 |    56 |
++----+--------+------+--------+------+-------+---------+-------+-----+--------+-----+-------+

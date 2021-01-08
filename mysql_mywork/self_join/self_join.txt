@@ -1,0 +1,41 @@
+sELF JOIN TABLE CREATE; 
+
+
+
+CREATE TABLE study
+    (
+    sno int(4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sid varchar(4),
+    cid varchar (4),
+    since date
+     )
+
+mysql> insert into study
+    -> (sid,cid,since)values('S2','C2','2017-02-08'),('S1','C2','2017-02-18');
+
+select * from study;
++-----+------+------+------------+
+| sno | sid  | cid  | since      |
++-----+------+------+------------+
+|   1 | S1   | C1   | 2016-02-05 |
+|   2 | S2   | C2   | 2017-02-08 |
+|   3 | S1   | C2   | 2017-02-18 |
++-----+------+------+------------+
+
+
+
+ SELECT t1.sid FROM study as t1,study as t2 WHERE t1.sid=t2.sid
+    -> AND t1.cid <> t2.cid;
++------+
+| sid  |
++------+
+| S1   |
+| S1   |
++------+
+ SELECT t1.sid,count(*) FROM study as t1,study as t2 WHERE t1.sid=t2.sid
+    -> AND t1.cid <> t2.cid group by t1.sid;
++------+----------+
+| sid  | count(*) |
++------+----------+
+| S1   |        2 |
++------+----------+

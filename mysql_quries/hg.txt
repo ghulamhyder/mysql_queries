@@ -1,0 +1,10 @@
+ INSERT INTO dept
+    (dname,empid)values('HR',1),
+    ('Admin',1),
+    ('IT',1),
+    ('IT',2),
+    ('Exe',2),
+    ('IT',3),
+    ('HR',5),
+    ('Exe',4),
+    ('IT',4);

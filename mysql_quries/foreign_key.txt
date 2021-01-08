@@ -1,0 +1,10 @@
+ CREATE TABLE students
+    -> (
+    -> id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR (20),
+    ->  AGE INT(4),
+    -> course INT,
+    -> city int,
+    -> FOREIGN KEY (course) REFERENCES course(cid),
+    -> FOREIGN KEY (city) REFERENCES address(adrs_id)
+    -> );

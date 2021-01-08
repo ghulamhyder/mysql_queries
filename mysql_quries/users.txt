@@ -1,0 +1,42 @@
+ CREATE TABLE users
+     (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     username VARCHAR (40),
+     email VARCHAR(40),
+    password VARCHAR(20),
+    usertype enum('admin','other'),
+    register_date DATE,
+    last_login DATE,
+    notes VARCHAR (50),
+     constraint emial_uk
+     UNIQUE (email)
+   )	
+  CREATE TABLE users
+    ->      (
+    ->     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ->      username VARCHAR (40),
+    ->      email VARCHAR(40),
+    ->     password VARCHAR(20),
+    ->     usertype enum('admin','other'),
+    ->     register_date DATE,
+    ->     last_login DATE,
+    ->     notes VARCHAR (50),
+    ->      constraint emial_uk
+    ->      UNIQUE (email)
+    ->    )
+    -> ;
+Query OK, 0 rows affected (0.303 sec)
+
+MariaDB [project_inv]> show columns from users;
++---------------+-----------------------+------+-----+---------+----------------+
+| Field         | Type                  | Null | Key | Default | Extra          |
++---------------+-----------------------+------+-----+---------+----------------+
+| id            | int(11)               | NO   | PRI | NULL    | auto_increment |
+| username      | varchar(40)           | YES  |     | NULL    |                |
+| email         | varchar(40)           | YES  | UNI | NULL    |                |
+| password      | varchar(20)           | YES  |     | NULL    |                |
+| usertype      | enum('admin','other') | YES  |     | NULL    |                |
+| register_date | date                  | YES  |     | NULL    |                |
+| last_login    | date                  | YES  |     | NULL    |                |
+| notes         | varchar(50)           | YES  |     | NULL    |                |
++---------------+-----------------------+------+-----+---------+----------------+

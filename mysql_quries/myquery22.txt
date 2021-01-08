@@ -1,0 +1,15 @@
+ CREATE TABLE marks
+(
+sno int not null auto_increment primary key,
+s_id int,
+sub_id varchar(10), 
+marks int,
+FOREIGN KEY (s_id) REFERENCES students(s_id),
+FOREIGN KEY (sub_id) REFERENCES subject(sub_id)
+
+);
+
+SELECT s.s_id,s.s_name,s.details,c.sub_name,m.marks FROM marks as m
+    INNER JOIN students as s ON m.s_id=s.s_id
+    INNER JOIN subject as c ON m.sub_id=c.sub_id;
+ 

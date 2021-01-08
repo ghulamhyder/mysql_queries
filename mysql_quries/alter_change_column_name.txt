@@ -1,0 +1,31 @@
+ alter table math
+    -> change column math math int(4);
+
+
+
+ CREATE TABLE marks
+(
+    mks_id INT (4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     s_id int (4),
+     math int (4),
+    urdu int (4),
+    science int (4),
+     english int (4),
+    total_marks int(4),
+    FOREIGN KEY (s_id) REFERENCES student(s_id),
+    FOREIGN KEY (math) REFERENCES math(mid),
+     FOREIGN KEY (urdu) REFERENCES urdu(uid),
+     FOREIGN KEY (science) REFERENCES science(sc_id),
+     FOREIGN KEY (english) REFERENCES english (eid)
+    )
+
+
+	SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,m1.total_marks FROM 
+	marks as m1,student as s,math as m,urdu as u,science as sc,english as e
+	WHERE m1.s_id=s.s_id AND m1.math=m.mid AND m1.urdu=u.uid AND m1.science=sc.sc_id
+	AND m1.english=e.eid
+
+	SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,(m.math+u.urdu+sc.science+e.english) as total_marks FROM 
+	marks as m1,student as s,math as m,urdu as u,science as sc,english as e
+	WHERE m1.s_id=s.s_id AND m1.math=m.mid AND m1.urdu=u.uid AND m1.science=sc.sc_id
+	AND m1.english=e.eid

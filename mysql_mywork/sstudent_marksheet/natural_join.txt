@@ -1,0 +1,1 @@
+ select s.s_id,s.s_name,m.marks,c.sub_name from marks as m,students as s,subject as c WHERE m.s_id=s.s_id AND m.sub_id=c.sub_id;

@@ -1,0 +1,16 @@
+create table emp
+(
+id int (11) not null auto_increment primary key,
+emp_name (varchar(40),
+dob date,
+dept varchar(50),
+salary decimal(10,2),
+city varchar(40),
+pin int(11),
+email varchar(40)
+);
+
+
+
+insert into emp
+(emp_name,dob

@@ -1,0 +1,17 @@
+************database name students***************there are foure  table in this database these are that
+1,sbio_data
+2,course,
+3,marks,
+4,grade 
+
+
+
+ select s.roll_no,s.name,s.address,c.course,m.marks from sbio_data as s inner join course as c on s.roll_no=c.roll_no
+   inner join marks as m on c.cid=m.cid;
+
+
+
+ select s.roll_no,s.name,c.course,m.marks,g.grade from sbio_data as s
+    -> inner join course as c on s.roll_no=c.roll_no
+    -> inner join marks as m on m.cid=c.cid
+    -> inner join grade as g on g.mid=m.mid;

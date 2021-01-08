@@ -1,0 +1,6 @@
+USE BETWEEN AND IN OPERATOR IN MYSQL
+
+
+
+ SELECT name ,fname,salary ,dept FROM test1 WHERE (salary BETWEEN 25000 AND 29000)
+    -> AND NOT dept IN('B','A');

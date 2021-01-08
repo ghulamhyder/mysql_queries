@@ -1,0 +1,120 @@
+PROJECT FOR MAKE MARKS SHEET OF STUDENTS;
+database Name: test6_23june
++------------------------+
+| Tables_in_test6_23june |
++------------------------+
+| english                |
+| marks                  |
+| math                   |
+| science                |
+| student                |
+| urdu                   |
++------------------------+
+
+
+
+  CREATE TABLE marks
+    -> (
+    ->     mks_id INT (4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    ->      s_id int (4),
+    ->      math int (4),
+    ->     urdu int (4),
+    ->     science int (4),
+    ->      english int (4),
+    ->     total_marks int(4),
+    ->     FOREIGN KEY (s_id) REFERENCES student(s_id),
+    ->     FOREIGN KEY (math) REFERENCES math(mid),
+    ->      FOREIGN KEY (urdu) REFERENCES urdu(uid),
+    ->      FOREIGN KEY (science) REFERENCES science(sc_id),
+    ->      FOREIGN KEY (english) REFERENCES english (eid)
+    ->     );
+
+mysql> SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,m1.total_marks FROM
+    -> marks as m1,student as s,math as m,urdu as u,science as sc,english as e
+    -> WHERE m1.s_id=s.s_id AND m1.math=m.mid AND m1.urdu=u.uid AND m1.science=sc.sc_id
+    -> AND m1.english=e.eid;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| mks_id      | int  | NO   | PRI | NULL    | auto_increment |
+| s_id        | int  | YES  | MUL | NULL    |                |
+| math        | int  | YES  | MUL | NULL    |                |
+| urdu        | int  | YES  | MUL | NULL    |                |
+| science     | int  | YES  | MUL | NULL    |                |
+| english     | int  | YES  | MUL | NULL    |                |
+| total_marks | int  | YES  |     | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+
+mysql> SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,(m.math+u.urdu+sc.science+e.english) as total_marks FROM
+    -> marks as m1,student as s,math as m,urdu as u,science as sc,english as e
+    -> WHERE m1.s_id=s.s_id AND m1.math=m.mid AND m1.urdu=u.uid AND m1.science=sc.sc_id
+    -> AND m1.english=e.eid;
++------+--------+------+------+---------+---------+-------------+
+| s_id | s_name | math | urdu | science | english | total_marks |
++------+--------+------+------+---------+---------+-------------+
+|    1 | Eidal  |   45 |   88 |      57 |      49 |         239 |
+|    2 | Younis |   56 |   46 |      41 |      55 |         198 |
+|    3 | Hayat  |   78 |   90 |      56 |      52 |         276 |
++------+--------+------+------+---------+---------+-------------+
+
+
+mysql>  SELECT s.s_id,s.s_name,m.math,u.urdu,sc.science,e.english,(m.math+u.urdu+sc.science+e.english) as total_marks,
+    -> (m.math+u.urdu+sc.science+e.english)*100/400 as percentage  FROM
+    ->      marks as m1,student as s,math as m,urdu as u,science as sc,english as e
+    ->      WHERE m1.s_id=s.s_id AND m1.math=m.mid AND m1.urdu=u.uid AND m1.science=sc.sc_id
+    ->      AND m1.english=e.eid;
++------+--------+------+------+---------+---------+-------------+------------+
+| s_id | s_name | math | urdu | science | english | total_marks | percentage |
++------+--------+------+------+---------+---------+-------------+------------+
+|    1 | Eidal  |   45 |   88 |      57 |      49 |         239 |    59.7500 |
+|    2 | Younis |   56 |   46 |      41 |      55 |         198 |    49.5000 |
+|    3 | Hayat  |   78 |   90 |      56 |      52 |         276 |    69.0000 |
++------+--------+------+------+---------+---------+-------------+------------+
+
+
+mysql> select * from student;	
++------+--------+
+| s_id | s_name |
++------+--------+
+|    1 | Eidal  |
+|    2 | Younis |
+|    3 | Hayat  |
++------+--------+
+
+mysql> select * from science;
++-------+---------+
+| sc_id | science |
++-------+---------+
+|     1 |      56 |
+|     2 |      41 |
+|     3 |      57 |
++-------+---------+
+
+
+mysql> select * from english;
++-----+---------+
+| eid | english |
++-----+---------+
+|   1 |      49 |
+|   2 |      52 |
+|   3 |      55 |
++-----+---------+
+
+
+
+mysql> select * from urdu;
++-----+------+
+| uid | urdu |
++-----+------+
+|   1 |   46 |
+|   2 |   88 |
+|   3 |   90 |
++-----+------+
+mysql> select * from math;
++-----+------+
+| mid | math |
++-----+------+
+|   1 |   45 |
+|   2 |   56 |
+|   3 |   78 |
++-----+------+

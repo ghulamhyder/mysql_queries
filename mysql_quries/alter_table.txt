@@ -1,0 +1,10 @@
+show index from tablename
+
+
+
+
+
+
+ alter table marks
+    -> drop constraint course_cid_fk;
+Query OK, 0 rows affected (0.46 sec)

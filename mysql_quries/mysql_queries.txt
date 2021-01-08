@@ -1,0 +1,17 @@
+//////mysql queries////
+
+	***********************	INNER EQUIJOIN WITH FOREIGN KEY *********************************
+1,INNER JOIN->SELECT * FROM sbio_data as d INNER JOIN course as c ON d.roll_no=c.roll_no;
+2,INNER JOIN ->SELECT d.name,d.address,d.phone,d.age,c.course FROM sbio_data as d INNER JOIN course as c
+->ON d.roll_no = c.roll_no ORDER BY d.name DESC;
+////////////but here is diffenernt b/w this if run query this condition ///////////
+1->iiner join -> SELECT * FROM course as c INNER JOIN sbio_data as d ON d.roll_no=c.roll_no; 
+
+	************************ NON JOIN OR NON INNER JOIN WITH FOREIGN KEY ****************************
+
+1,NON INNER JOIN->SELECT d.name,d.address,c.course FROM sbio_data as d INNER JOIN course as c ON
+->d.roll_no <> c.roll_no;
+
+	************************* NATURAL JOIN BY FOREIGN KEY*******************************
+1,SELECT d.name,d.address,c.course FROM sbio_data as d NATURAL JOIN course as c;
+

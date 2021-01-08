@@ -1,0 +1,17 @@
+*************************************database SHOPS***************************************
+ 
+
+
+
+SELECT c.name,p.item,p.price,o.qty, o.qty*p.price  FROM cust as c INNER JOIN parts as p ON c.custid=p.partnum
+    -> INNER JOIN orders as o ON c.custid=o.custid;
+
+
+
+ SELECT  SUM( o.qty*p.price) as total  FROM cust as c INNER JOIN parts as p ON c.custid=p.partnum
+    -> INNER JOIN orders as o ON c.custid=o.custid;
+
+
+**************************************NATURAL JOIN***********************************
+ SELECT c.name,c.address, p.item,p.price,o.qty FROM cust as c ,parts as p ,orders as o
+    -> WHERE c.custid=p.partnum AND c.custid=o.partnum; 
